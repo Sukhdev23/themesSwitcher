@@ -1,4 +1,4 @@
-import { useTheme } from './ThemeContext'
+import { useTheme } from './useTheme'
 
 function App() {
   const { theme, toggleTheme } = useTheme()
@@ -11,7 +11,7 @@ function App() {
 
           <header className="relative border-b border-slate-200 dark:border-slate-700 p-6 md:p-10 transition-colors duration-500">
             <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-blue-300">
-              React + Tailwind + Context API
+              React + Tailwind + Context API  
             </p>
             <h1 className="mt-3 text-3xl font-black leading-tight tracking-tight md:text-6xl">
               Theme Switcher

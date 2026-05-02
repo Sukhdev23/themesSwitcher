@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   body {
     @apply bg-gradient-to-br from-blue-50 via-orange-50 to-emerald-50;
