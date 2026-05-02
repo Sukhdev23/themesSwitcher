@@ -1,52 +1,64 @@
 @import "tailwindcss";
 
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-blue-50 via-orange-50 to-emerald-50;
+  }
+}
+
+@layer components {
+  .theme-input {
+    @apply sr-only;
+  }
+
+  .app-shell {
+    @apply rounded-3xl border border-slate-200 bg-white/80 text-slate-900 shadow-2xl transition-colors duration-500;
+  }
+
+  .app-shell-dark {
+    @apply border-slate-700 bg-slate-950/80 text-blue-50;
+  }
+
+  .theme-chip {
+    @apply cursor-pointer rounded-lg px-4 py-2 text-sm font-semibold transition-all;
+  }
+
+  .theme-chip-active {
+    @apply bg-white text-slate-900 shadow-md;
+  }
+
+  .theme-chip-active-dark {
+    @apply bg-slate-900 text-blue-50 shadow-md;
+  }
+
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white p-5 transition-colors;
+  }
+
+  .card-dark {
+    @apply border-slate-700 bg-slate-900/50;
+  }
+}
+
+/* Theme Switching with CSS Variables */
 :root {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f4f8ff 0%, #fef7ee 50%, #eef7f2 100%);
-}
-
-#root {
-  min-height: 100vh;
-}
-
-.theme-input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  overflow: hidden;
-}
-
-.app-shell {
-  --bg: #f6f8ff;
-  --surface: #ffffffc9;
-  --card: #ffffff;
-  --text: #1f2a37;
-  --muted: #5f6d80;
-  --line: #d7deeb;
-  --glow: rgba(38, 131, 255, 0.24);
+  --surface-light: rgb(255 255 255 / 0.8);
+  --surface-dark: rgb(15 23 42 / 0.8);
+  --card-light: rgb(255 255 255);
+  --card-dark: rgb(15 23 42 / 0.3);
+  --border-light: rgb(226 232 240);
+  --border-dark: rgb(51 65 85);
 }
 
 #theme-dark:checked ~ .app-shell {
-  --bg: #020814;
-  --surface: #0b172acc;
-  --card: #111e35;
-  --text: #e8f0ff;
-  --muted: #b7c4da;
-  --line: #2a3c5d;
-  --glow: rgba(96, 165, 250, 0.2);
+  @apply border-slate-700 bg-slate-950/80 text-blue-50;
+}
+
+#theme-dark:checked ~ .app-shell .card {
+  @apply border-slate-700 bg-slate-900/50;
 }
 
 #theme-light:checked ~ .app-shell label[for="theme-light"],
 #theme-dark:checked ~ .app-shell label[for="theme-dark"] {
-  background: var(--card);
-  color: var(--text);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  @apply bg-slate-100 text-slate-900 shadow-md dark:bg-slate-900 dark:text-blue-50;
 }
