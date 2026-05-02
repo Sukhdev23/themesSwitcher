@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f4f8ff 0%, #fef7ee 50%, #eef7f2 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.theme-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.app-shell {
+  --bg: #f6f8ff;
+  --surface: #ffffffc9;
+  --card: #ffffff;
+  --text: #1f2a37;
+  --muted: #5f6d80;
+  --line: #d7deeb;
+  --glow: rgba(38, 131, 255, 0.24);
+}
+
+#theme-dark:checked ~ .app-shell {
+  --bg: #020814;
+  --surface: #0b172acc;
+  --card: #111e35;
+  --text: #e8f0ff;
+  --muted: #b7c4da;
+  --line: #2a3c5d;
+  --glow: rgba(96, 165, 250, 0.2);
+}
+
+#theme-light:checked ~ .app-shell label[for="theme-light"],
+#theme-dark:checked ~ .app-shell label[for="theme-dark"] {
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
